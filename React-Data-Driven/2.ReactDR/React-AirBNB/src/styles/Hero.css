@@ -1,0 +1,18 @@
+
+.hero-img-box{
+    display: flex;
+    justify-content: center;
+}
+
+.hero-img-box img{
+    max-width: 100%; 
+    padding: 50px;  
+}
+
+.hero-txt-box{
+    margin: 10px 0px 10px 20px;
+}
+
+.hero-txt-box p{
+    margin: 10px 0;
+}
