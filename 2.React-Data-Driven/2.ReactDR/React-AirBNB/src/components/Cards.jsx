@@ -1,5 +1,4 @@
 import "../styles/Cards.css";
-import img1 from "../../public/images/katie-zaferes.png";
 import Card from "./Card";
 import cardData from "../data";
 
