@@ -1,0 +1,36 @@
+.logo{
+    width: 50px;
+  }
+  
+  .mynav{
+    display: flex;
+    justify-content: space-between;
+    min-height: 70px;
+    background-color: #21222a;
+  }
+  
+  .navlogo{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 10px;
+  }
+  
+  .navlogo > *{
+    padding: 5px;
+  }
+  
+  .navlogo span{
+    color: #5ed7fa;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  .navindex{
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+  }
+  
+  

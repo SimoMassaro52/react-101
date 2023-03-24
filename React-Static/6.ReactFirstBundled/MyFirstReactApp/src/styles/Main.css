@@ -1,0 +1,33 @@
+
+
+
+main{
+    height: 100vh;
+    background-color: #282d34;
+    color: white;
+    background-image: url(https://cdn.iconscout.com/icon/free/png-512/react-2-458175.png?f=avif&w=256);
+    background-repeat: no-repeat;
+    background-position: 180% 20%;
+    background-size: 300px;
+}
+
+h1{
+    font-weight: 900;
+    padding: 20px;
+}   
+
+ul {
+    font-size: 16px;
+}
+
+ul li{
+    max-width: 400px;
+    padding: 10px 0;
+}
+
+ul li::marker{
+    color: #5ed7fa; 
+    padding: 10px;
+    display: inline-block;
+    font-size: 1.5rem;
+}

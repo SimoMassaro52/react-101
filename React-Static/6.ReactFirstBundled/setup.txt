@@ -1,0 +1,26 @@
+
+In order to start making actual projects with React, we need to broaden our use of components.
+The first thing we will need from now on to start our projects will be a bundler, Vite in this case but there are plenty more.
+
+1. To initialize our ReactVite app we need to have installed npm and node.
+Then we run npm create vite@latest   
+2. Vite will make us decide the name of our project
+3. We select a framework to work with, it will be React in most cases
+4. We select in what JS variant our file is in, it being Typescript most of time but for this once we are going to use vanilla JS
+5. That's it! The project is ready but it will need some place to run on the web so we are also starting a local server using "npm run dev"
+
+Summary:
+
+1. npm create vite@latest
+
+2. React
+
+3. project folder name
+
+4. Javascript/Typescript variant selection
+
+5. cd project-name
+
+6. npm install
+
+7. npm run dev
