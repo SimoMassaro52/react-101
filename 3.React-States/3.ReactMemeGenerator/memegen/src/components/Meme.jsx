@@ -1,18 +1,26 @@
 import "../styles/Meme.css";
+//Meme "API" import
 import memesData from "../memesData";
-import React from "react";
+import { useState } from "react";
 
 export const Meme = () => {
-	//Setting a default state being a default url
-	const [memeImg, setMeme] = React.useState("https://i.imgflip.com/30b1gx.jpg");
+	//Setting a default state object
+	const [meme, setMeme] = useState({
+		topText: "top text",
+		bottomText: "bottom text",
+		img: "https://i.imgflip.com/30b1gx.jpg",
+	});
+
+	//Setting a state for the whole meme data array of all the memes
+	const [allMemeImages, setAllMemes] = useState(memesData);
 
 	//Random url selection from meme array
-	const memeArray = memesData.data.memes;
+	const memeArray = allMemeImages.data.memes;
 	function getRandomMeme() {
 		const randomNo = Math.floor(Math.random() * memeArray.length);
-		let memeUrl = memeArray[randomNo].url;
-		//setMeme function makes the prevmeme value become the radnom meme url
-		setMeme((prevMeme) => memeUrl);
+		let randomMemeUrl = memeArray[randomNo].url;
+		//setMeme function will return the prevMeme object with all its values plus the randomized key value of the img
+		setMeme((prevMeme) => ({ ...prevMeme, img: randomMemeUrl }));
 	}
 
 	return (
@@ -34,7 +42,7 @@ export const Meme = () => {
 				</div>
 			</form>
 			<div className="meme-img-box">
-				<img src={memeImg} />
+				<img src={meme.img} />
 			</div>
 		</section>
 	);

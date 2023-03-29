@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import Star from "./Star";
 
 //This will be a short module on how objects work in useState
 
@@ -10,13 +11,10 @@ function App() {
 		lastName: "Doe",
 		phone: "+1 (719) 555-1212",
 		email: "itsmyrealname@example.com",
-		isFavorite: false,
+		isFavorite: true,
 	});
 
-	//To show how to access and modify a key value within the object, we are going to make the favorite icon dynamic on click
-	//This ternary will depend on the isFavorite key boolean value
-	let starIcon = contact.isFavorite ? "star-filled.png" : "star-empty.png";
-
+	//This toggle function has to exist within the parent component but we will discover how to pass it as a prop to the child Star component in order to make it work
 	function toggleFavorite() {
 		//In order to toggle the png, we need to use the set state function and switch the key value every time the icon is clicked
 		setContact((prevContact) => ({
@@ -32,12 +30,9 @@ function App() {
 			<div className="card">
 				<img src="./public/user.jpg" className="card--image" />
 				<div className="card--info">
-					<img
-						// We are goin to use a template literal to make this string dynamic
-						src={`../public/${starIcon}`}
-						className="card--favorite"
-						onClick={toggleFavorite}
-					/>
+					{/* The real conundrum here is making the child component able to alter the value that it is receiving
+						We can do it by passing the toggleFavorite function as a custom prop like any other and handle the onClick event on the child component file*/}
+					<Star isFilled={contact.isFavorite} handleClick={toggleFavorite} />
 					{/* Including the keys is pretty straight-forward by taking advantage of dot notation for objects in JS */}
 					<h2 className="card--name">
 						{contact.firstName} {contact.lastName}
