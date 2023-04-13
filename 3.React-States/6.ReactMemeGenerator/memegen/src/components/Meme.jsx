@@ -16,9 +16,15 @@ export const Meme = () => {
 
 	//API call
 	useEffect(() => {
-		fetch("https://api.imgflip.com/get_memes")
-			.then((res) => res.json())
-			.then((data) => setAllMemes(data.data.memes));
+		//Async await function to get the memes
+		//We are defining the fetch request in a separate function because useEffect expects a function as a parameter and it must return a cleanup function
+		//Since the async function will automatically return a promise, we need to initialize a function and run if for useEffect to actually work
+		async function getMemes() {
+			const res = await fetch("https://api.imgflip.com/get_memes");
+			const data = await res.json();
+			setAllMemes(data.data.memes);
+		}
+		getMemes();
 		//Empty array dependency since we want to make the call only once upon component rendering
 	}, []);
 

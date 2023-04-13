@@ -16,7 +16,7 @@ function App() {
 		setShow((prevShow) => !prevShow);
 	}
 	return (
-		<div className="App">
+		<div className="container">
 			<button onClick={toggleTracker}>Toggle WindowTracker</button>
 			{/* If show is true, display the WindowTracker component */}
 			{show && <WindowTracker />}
