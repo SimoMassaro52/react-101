@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>js-classes</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter&family=Karla:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<main>
+			<div class="background">
+				<div class="character hero"></div>
+				<div class="character enemy"></div>
+			</div>
+			<div class="menu">
+				<button onclick="battle()">Attack</button>
+				<div class="data-box">
+					<div class="hero-data" id="hero">
+						<span>Hero</span>
+						<span>Hp: <span id="hero-hp"></span></span>
+						<span>Inventory: <span id="hero-inv"></span></span>
+						<span>Alive: <span id="hero-stat"></span></span>
+					</div>
+					<div class="enemy-data" id="slime">
+						<span>Slime</span>
+						<span>Hp: <span id="enemy-hp"></span></span>
+						<span>Loot: <span id="enemy-inv"></span></span>
+						<span>Alive: <span id="enemy-stat"></span></span>
+					</div>
+				</div>
+			</div>
+		</main>
+		<script src="script.js"></script>
+	</body>
+</html>

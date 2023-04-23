@@ -1,0 +1,44 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: "Karla", sans-serif;
+}
+
+div#root {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: rebeccapurple;
+	color: white;
+}
+
+h1 {
+	margin: 0;
+}
+
+.box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.quest {
+	text-align: center;
+}
+
+.answer {
+	background-color: white;
+	height: 75px;
+	width: 75px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rebeccapurple;
+	cursor: pointer;
+}
