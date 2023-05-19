@@ -2,6 +2,7 @@ import "./App.css";
 import {
 	//Search params hook import
 	useSearchParams,
+	Link,
 } from "react-router-dom";
 
 //The useSearchParams hook is used to read and modify the query string in the URL of the current route
@@ -48,6 +49,15 @@ function Home() {
 	));
 	return (
 		<>
+			{" "}
+			<h1>Star Wars Characters</h1>
+			{/*Setting up basic links to point to different types on the query is pretty simple since it will just add and reckognise the query to the URL */}
+			<nav>
+				<Link to="?type=jedi">Jedi</Link>
+				<Link to="?type=sith">Sith</Link>
+				{/* We can clear the search parameters by pointing to either the current path or an empty string */}
+				<Link to=".">All</Link>
+			</nav>
 			<main>{characterElements}</main>
 		</>
 	);
