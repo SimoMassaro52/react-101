@@ -51,13 +51,17 @@ function Home() {
 		<>
 			{" "}
 			<h1>Star Wars Characters</h1>
-			{/*Setting up basic links to point to different types on the query is pretty simple since it will just add and reckognise the query to the URL */}
-			<nav>
+			{/* More often than not, when working with filter we are going to set up buttons, not link (even tho that is entirely possible and there is an example in the comment below)
 				<Link to="?type=jedi">Jedi</Link>
 				<Link to="?type=sith">Sith</Link>
-				{/* We can clear the search parameters by pointing to either the current path or an empty string */}
 				<Link to=".">All</Link>
-			</nav>
+			The common way is actually using the setter function of the useSearchParams() hook on a click event handler and passing it an object with the property we want to point to as the key
+			 */}
+			<div>
+				<button onClick={() => setSearchParams({ type: "jedi" })}>Jedi</button>
+				<button onClick={() => setSearchParams({ type: "sith" })}>Sith</button>
+				<button onClick={() => setSearchParams({})}>All</button>
+			</div>
 			<main>{characterElements}</main>
 		</>
 	);
