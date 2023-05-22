@@ -62,6 +62,7 @@ function Home() {
 				<button onClick={() => setSearchParams({ type: "sith" })}>Sith</button>
 				<button onClick={() => setSearchParams({})}>All</button>
 			</div>
+			{/* Note: this works until we want to set up multiple query parameters, so we are going to tackle that exception in the new modules */}
 			<main>{characterElements}</main>
 		</>
 	);
