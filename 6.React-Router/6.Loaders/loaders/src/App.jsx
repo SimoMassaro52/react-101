@@ -17,13 +17,19 @@ import {
 	// Routes,
 	// Route,
 } from "react-router-dom";
-import Home from "./Home.jsx";
+//Since the Home component is exporting the loader function, we need to include it in the import statement of the component
+import Home, { loader } from "./Home.jsx";
+import NotFound from "./NotFound.jsx";
 
 // Then we need to assign the function to a variable and we will be able to create an array of objects that will make up for our new browser router
 const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <Home />,
+		//We will add the laoder as a key and the loader function we import from the desired component as its value
+		loader: loader,
+		//Now that we set a loader, our error handling will be much smoother. We can just define an error element that will render if any error is thrown, not just fetch (we can see it in action by just adding an inexistent route to the URL)
+		errorElement: <NotFound />,
 	},
 ]);
 
