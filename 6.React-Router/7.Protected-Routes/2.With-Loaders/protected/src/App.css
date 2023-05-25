@@ -1,0 +1,13 @@
+html,
+body {
+	margin: 0;
+	padding: 10px;
+	background-color: #fff7ed;
+	color: #161616;
+}
+
+a,
+button {
+	margin-right: 15px;
+	color: #161616;
+}
