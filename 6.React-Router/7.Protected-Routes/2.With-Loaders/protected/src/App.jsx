@@ -12,7 +12,6 @@ import Login, { loader as loginLoader } from "./Login";
 
 //Here we will se that there's a difference between loader and no-loader app
 //The fetch request is executed first, before the component mounts so we can manage the error in a more declarative way
-
 const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route path="/" element={<Layout />}>
