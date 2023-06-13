@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { useLoaderData, defer } from "react-router-dom";
+import { useLoaderData, defer, Await } from "react-router-dom";
 import { sleep, getWeather } from "./utils";
 
 //We use async functions in JS because we want the code to be aware of the time it takes for a certain part of our script to run before running something else
@@ -16,13 +16,26 @@ export async function loader() {
 
 export default function Weather() {
 	const loaderData = useLoaderData();
-	const iconUrl = `http://openweathermap.org/img/wn/${loaderData.weather[0].icon}@2x.png`;
-
 	return (
 		<section className="weather-container">
 			<h1>Weather in Salt Lake City</h1>
-			<h3>{loaderData.main.temp}ºF</h3>
-			<img src={iconUrl} />
+			{/* First thing is defining the content to be displayed until the data is fetched correctly. This is where the Suspense custom component comes into play. It has a fallback attribute whose value is the element we want to display while the rest of the data loads. */}
+			<Suspense fallback={<h1>Loading...</h1>}>
+				{/* Now that we deffered our data, we can import the Await React component and wrap it around the code we want to render after the referred data is received. It will render the content only after the data is received automatically
+				The resolve attribute is what links together loader and content. It expects a promise and ,at the moment, the value of the weather key inside the object we created is exactly that and we can access it with useLoaderData() */}
+				<Await resolve={loaderData.weather}>
+					{/* We will then use a render prop (briefly, an arrow function that receives whatever data we want to display) and use its value to render the content as tangible data */}
+					{(loadedWeather) => {
+						const iconUrl = `http://openweathermap.org/img/wn/${loadedWeather.weather[0].icon}@2x.png`;
+						return (
+							<>
+								<h3>{loadedWeather.main.temp}ºF</h3>
+								<img src={iconUrl} />
+							</>
+						);
+					}}
+				</Await>
+			</Suspense>
 		</section>
 	);
 }
