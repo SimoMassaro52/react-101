@@ -30,10 +30,15 @@ export async function action({ request }) {
 	const formData = await request.formData();
 	const email = formData.get("email");
 	const password = formData.get("password");
+	//Since the action is already accessing the request object, we can use the URL object to grab the correct value of the passed param pathname to redirect to
+	const pathname =
+		new URL(request.url).searchParams.get("redirectTo") ||
+		//And if its value is null (meaning the user didn't go to that nested route to begin with) we will just assign it the regular route
+		"/protected";
 	//The try will wait for the user validation function and then return the redirect
 	try {
 		await fakeLoginUser({ email, password });
-		return redirect("/protected");
+		return redirect(pathname);
 		//When catching the error, we are going to return its message string to then display it and block the user from accessing the data
 	} catch (err) {
 		return err.message;
