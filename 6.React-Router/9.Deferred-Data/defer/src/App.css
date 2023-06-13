@@ -1,0 +1,32 @@
+html,
+body {
+	margin: 0;
+	padding: 10px;
+	color: #fff7ed;
+	background-color: #161616;
+}
+
+main {
+	margin-top: 30px;
+}
+
+a,
+button {
+	margin-right: 15px;
+	color: #fff7ed;
+}
+
+form {
+	margin-top: 30px;
+}
+
+.weather-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.weather-container > h1 {
+	text-align: center;
+	margin-bottom: 0;
+}
